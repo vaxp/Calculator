@@ -11,7 +11,7 @@ class CalculatorView extends GetView<CalculatorController> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-      navigationBar: const CupertinoNavigationBar(middle: Text('Calculator',style: TextStyle(color: Colors.black),)),
+      navigationBar: const CupertinoNavigationBar(middle: Text('Calculator',style: TextStyle(color: Colors.white),)), // تم تعديل اللون ليتوافق مع الخلفية الداكنة
       child: SafeArea(
         child: Column(
           children: [
@@ -19,14 +19,20 @@ class CalculatorView extends GetView<CalculatorController> {
               child: Container(
                 padding: const EdgeInsets.all(24),
                 alignment: Alignment.bottomRight,
-                child: Obx(() => CupertinoTextField(
-                      controller: controller.textController,
-                      readOnly: true,
-                      showCursor: false,
-                      textAlign: TextAlign.right,
-                      style: const TextStyle(fontSize: 52, fontWeight: FontWeight.w200, color: Colors.white),
-                      decoration: null,
-                    )),
+                // ✅ استخدام Obx للف Text Widget وقراءة القيمة مباشرة
+                child: Obx(
+                  () => Text(
+                    controller.display.value, // ✅ قراءة القيمة التفاعلية
+                    textAlign: TextAlign.right,
+                    style: const TextStyle(
+                      fontSize: 52,
+                      inherit: false,
+                      fontWeight: FontWeight.w200,
+                      color: Colors.white
+                      
+                    ),
+                  ),
+                ),
               ),
             ),
             Padding(

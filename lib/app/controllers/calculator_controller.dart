@@ -1,13 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class CalculatorController extends GetxController {
+  // ✅ هذا المتغير التفاعلي (Observable) هو مصدر الحقيقة الوحيد للعرض.
   final display = '0'.obs;
-  final textController = TextEditingController(text: '0');
+  
+  // ❌ تم حذف: final textController = TextEditingController(text: '0');
 
   double? _storedValue;
   String? _operator;
   bool _shouldClear = false; 
+
   void inputDigit(String d) {
     if (_shouldClear || display.value == '0') {
       display.value = d;
@@ -15,7 +17,7 @@ class CalculatorController extends GetxController {
     } else {
       display.value = '${display.value}$d';
     }
-    textController.text = display.value;
+    // ❌ تم حذف: textController.text = display.value;
   }
 
   void inputDot() {
@@ -27,7 +29,7 @@ class CalculatorController extends GetxController {
     if (!display.value.contains('.')) {
       display.value = '${display.value}.';
     }
-    textController.text = display.value;
+    // ❌ تم حذف: textController.text = display.value;
   }
 
   void allClear() {
@@ -35,7 +37,7 @@ class CalculatorController extends GetxController {
     _storedValue = null;
     _operator = null;
     _shouldClear = false;
-    textController.text = display.value;
+    // ❌ تم حذف: textController.text = display.value;
   }
 
   void toggleSign() {
@@ -45,14 +47,14 @@ class CalculatorController extends GetxController {
     } else {
       display.value = '-${display.value}';
     }
-    textController.text = display.value;
+    // ❌ تم حذف: textController.text = display.value;
   }
 
   void percent() {
     final v = double.tryParse(display.value) ?? 0.0;
     display.value = _format(v / 100);
     _shouldClear = true;
-    textController.text = display.value;
+    // ❌ تم حذف: textController.text = display.value;
   }
 
   void setOperator(String op) {
@@ -66,7 +68,7 @@ class CalculatorController extends GetxController {
     }
     _operator = op;
     _shouldClear = true;
-    textController.text = display.value;
+    // ❌ تم حذف: textController.text = display.value;
   }
 
   void calculate() {
@@ -77,7 +79,7 @@ class CalculatorController extends GetxController {
     _storedValue = null;
     _operator = null;
     _shouldClear = true;
-    textController.text = display.value;
+    // ❌ تم حذف: textController.text = display.value;
   }
 
   double _compute(double a, String? op, double b) {
