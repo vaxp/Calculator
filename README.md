@@ -1,17 +1,54 @@
-# calculator_app
+# Calculator — Official Calculator for VAXP-OS 🔢
 
-A new Flutter project.
+An official, lightweight calculator application developed for the VAXP-OS distribution. Calculator provides fast, easy-to-use arithmetic functionality in a compact interface and follows the VAXP-OS visual style.
 
-## Getting Started
+Built with Flutter and following a Clean Architecture approach to ensure high performance, maintainability, and reliable handling of arithmetic operations.
 
-This project is a starting point for a Flutter application.
+## Key features
 
-A few resources to get you started if this is your first Flutter project:
+- Native integration with VAXP-OS visual style (dark theme with accent colors for operator buttons)
+- Clean Architecture and GetX for state management to provide snappy, predictable UI updates
+- Basic arithmetic operations: addition, subtraction, multiplication, division
+- Focused, minimal UI designed for ease of use
+- Standard control buttons such as AC (all clear), +/- (toggle sign), and % (percentage)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Screenshots
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# Calculator
+Main calculator screen 
+
+## Installation & Building
+
+This project is open source and available at: https://github.com/vaxp/Calculator.git
+
+On VAXP-OS the application ships preinstalled as a core utility and does not require any user installation.
+
+If you want to build from source (for developers):
+
+Prerequisites
+
+- Flutter SDK installed and configured for your platform
+
+Clone the repository
+
+```bash
+git clone https://github.com/vaxp/Calculator.git
+cd Calculator
+```
+
+Get dependencies
+
+```bash
+flutter pub get
+```
+
+Build for Linux
+
+```bash
+flutter build linux
+```
+
+Follow your distribution packaging or installation steps (for example, copying the built bundle to /opt or creating a .deb package) to install the app system-wide.
+
+## License
+
+This project is licensed under the GNU GPLv3.
