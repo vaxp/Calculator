@@ -48,6 +48,18 @@ static void my_application_activate(GApplication* application) {
   }
 
   gtk_window_set_default_size(window, 1280, 720);
+  
+  // Enable transparency
+  gtk_widget_set_app_paintable(GTK_WIDGET(window), TRUE);
+  GdkScreen *screen_rgba = gtk_window_get_screen(window);
+  GdkVisual *visual = gdk_screen_get_rgba_visual(screen_rgba);
+  if (visual != NULL && gdk_screen_is_composited(screen_rgba)) {
+    gtk_widget_set_visual(GTK_WIDGET(window), visual);
+  }
+  
+  // Set window opacity (80% opaque, 20% transparent)
+  gtk_widget_set_opacity(GTK_WIDGET(window), 0.8);
+  
   gtk_widget_show(GTK_WIDGET(window));
 
   g_autoptr(FlDartProject) project = fl_dart_project_new();
