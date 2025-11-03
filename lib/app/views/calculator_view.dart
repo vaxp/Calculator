@@ -10,7 +10,7 @@ class CalculatorView extends GetView<CalculatorController> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: const Color.fromARGB(45, 0, 0, 0),
+      backgroundColor: const Color.fromARGB(183, 0, 0, 0),
       child: SafeArea(
         child: Column(
           children: [

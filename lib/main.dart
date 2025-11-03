@@ -8,7 +8,7 @@ import 'dart:io';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+  if (Platform.isLinux) {
     setWindowTitle('Calculator');
     const fixedSize = Size(405, 700); 
     setWindowMinSize(fixedSize);
