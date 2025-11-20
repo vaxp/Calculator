@@ -1,11 +1,31 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:window_manager/window_manager.dart';
 import 'app/bindings/calculator_binding.dart';
 import 'app/views/calculator_view.dart';
 import 'package:window_size/window_size.dart';
 import 'dart:io';
 
-void main() {
+Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize window manager for desktop controls
+  await windowManager.ensureInitialized();
+
+  WindowOptions windowOptions = const WindowOptions(
+    size: Size(1000, 700),
+    center: true,
+    titleBarStyle: TitleBarStyle.hidden, // يخفي شريط مدير النوافذ
+  );
+
+  windowManager.waitUntilReadyToShow(windowOptions, () async {
+    await windowManager.show();
+    await windowManager.focus();
+  });
+
+
+
   WidgetsFlutterBinding.ensureInitialized();
 
   if (Platform.isLinux) {
